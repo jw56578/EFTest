@@ -21,8 +21,8 @@ namespace ConsoleApplication7
         {
             using (var context = new EFDContext())
             {
-                var people = context.People.Where((p => p.LastName == "Rogden"));
-                var theactualthings = people.Select(x=>new {FirstName= x.FirstName}).ToList();
+                var people = context.People.Where((p => p.LastName == "Rogden")).Select(x=>new {FirstName= x.FirstName}).ToList();
+                var actualpeople = context.People.Where((p => p.LastName == "Rogden")).ToList();
 
             }
         }
