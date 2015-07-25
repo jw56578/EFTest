@@ -9,7 +9,7 @@ using HibernatingRhinos.Profiler.Appender.EntityFramework;
 
 namespace ConsoleApplication7
 {
-    class Program
+    public partial class Program
     {
         //install entity framework power tools so that you can right click on any class file and create a model schema from it
         //when any EF code gets run as in GetPeople, it will automatically create the database and tables
@@ -25,31 +25,12 @@ namespace ConsoleApplication7
             //UpdatePerson();
             //GetPeople();
            // CreateObjectGraph();
-            GetParentObjectOnlyByFind();
+            //GetParentObjectOnlyByFind();
+            GetParentObjectOnlyByWhere();
             Console.ReadLine();
         }
 
-        public static void GetParentObjectOnlyByWhere()
-        {
-            using (var context = new EFDContext())
-            {
-                var people = context.People.Find(6);
-
-            }
-        }
-
-
-        //get a parent object with Find. This object should have a child object property that we don't want retrieved
-        //I don't see anything in sql profiler retrieving anything about the Address collection
-        public static void GetParentObjectOnlyByFind()
-        {
-            using (var context = new EFDContext())
-            {
-                var people = context.People.Find(6);
-
-            }
-        }
-
+      
         //create new parent object and new children objects
         public static void CreateObjectGraph()
         {
